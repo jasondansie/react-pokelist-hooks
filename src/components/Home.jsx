@@ -3,8 +3,7 @@ import classes from './Home.module.css'
 const Home = () => {
     return (
         <div className={classes.home1}>
-            <h1>Home</h1>
-            <h2>Home</h2>
+            Home
         </div>
     );
 };
