@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import Card from './Card';
+import classes from './Pokelist.module.css';
 
 
 const PokeSingle = () => {
@@ -21,14 +23,19 @@ const PokeSingle = () => {
             })
     }, []);
 
-    if (!isLoading) {
+    if (isLoading) {
         return <p>Loading... </p>
     }
 
     return (
-        <div>
-            <h2>{data.name}</h2>
-            <img src={data.sprites?.other.dream_world.front_default} alt="pokemon" />
+        <div className={classes.bg} >
+            <div className={classes.cards}>
+                <Card
+                    name={data.name}
+                    key={data.id}
+                    image={data.sprites?.other.dream_world.front_default}
+                />
+            </div>
             <button onClick={() => navigate(-1)}>Go back</button>
         </div>
     );
